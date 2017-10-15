@@ -1,0 +1,42 @@
+[{
+    "type": "javascript"
+    , "name": "TruJS.cmdArgs"
+    , "description": "A simple module for parsing command line arguments in NodeJS"
+    , "version": "0.0.1"
+
+    , "files": [
+      "{repos}/TruJS/_RegEx.js"
+      , "./CmdArgs.js"
+    ]
+
+    , "minify": false
+
+    , "format": "node"
+    , "return": "CmdArgs"
+
+    , "output": "./build/{name}/index.js"
+
+    , "package": {
+        "repository": {
+          "type": "git",
+          "url": "git+https://github.com/trujs/TruJS.cmdArgs.git"
+        }
+        , "keywords": [
+          "command",
+          "line",
+          "arguments"
+        ]
+        , "author": "Rodger McIntosh"
+        , "license": "MIT"
+        , "bugs": {
+          "url": "https://github.com/trujs/TruJS.cmdArgs/issues"
+        }
+        , "homepage": "https://github.com/trujs/TruJS.cmdArgs#readme"
+    }
+}, {
+    "type": "test"
+    , "name": "TruJS.cmdArgs"
+    , "description": "The test package for the TruJS.cmdArgs"
+
+    , "output": "./build/{name}.test/test.json"
+}]
