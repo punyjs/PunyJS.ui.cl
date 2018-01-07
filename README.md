@@ -15,7 +15,7 @@ var cmdArgs = require("trujs-cmdargs")(process.argv);
 node cli.js listen --config secure,port:3000 -fvt --serve -g
 ```
 |node|script|command|named-option|flag array|named-option|flag|
-|-------------------------------------------------------------------|
+|----|------|-------|------------|----------|------------|----|
 |node|cli.js|listen|--config secure,port:3000|-fvt|--serve|-g|
 
 * **command**: The first argument after the script path, before any named-options or flags.
