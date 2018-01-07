@@ -1,5 +1,5 @@
 /**[@test({ "title": "TruJS.cmdArgs.CmdArg: simple options & named options"})]*/
-function testCmdArgs1(arrange, act, assert, CmdArg) {
+function testCmdArgs1(arrange, act, assert, module) {
   var argv, res;
 
   arrange(function () {
@@ -19,7 +19,7 @@ function testCmdArgs1(arrange, act, assert, CmdArg) {
   });
 
   act(function () {
-    res = CmdArg(argv);
+    res = module(argv);
   });
 
   assert(function (test) {
@@ -55,7 +55,7 @@ function testCmdArgs1(arrange, act, assert, CmdArg) {
 }
 
 /**[@test({ "title": "TruJS.cmdArgs.CmdArg: multiple same options"})]*/
-function testCmdArgs2(arrange, act, assert, CmdArg) {
+function testCmdArgs2(arrange, act, assert, module) {
   var argv, res;
 
   arrange(function () {
@@ -67,7 +67,7 @@ function testCmdArgs2(arrange, act, assert, CmdArg) {
   });
 
   act(function () {
-    res = CmdArg(argv);
+    res = module(argv);
   });
 
   assert(function (test) {
@@ -83,7 +83,7 @@ function testCmdArgs2(arrange, act, assert, CmdArg) {
 }
 
 /**[@test({ "title": "TruJS.cmdArgs.CmdArg: complex named options"})]*/
-function testCmdArgs3(arrange, act, assert, CmdArg) {
+function testCmdArgs3(arrange, act, assert, module) {
   var argv, res;
 
   arrange(function () {
@@ -97,30 +97,36 @@ function testCmdArgs3(arrange, act, assert, CmdArg) {
   });
 
   act(function () {
-    res = CmdArg(argv);
+    res = module(argv);
   });
 
   assert(function (test) {
-    test("res.named.name1 should be null")
-      .value(res, "named.name1")
-      .isNull();
+    test("res.named should have 3 members")
+    .value(res, "named")
+    .hasMemberCountOf(3);
+
+    test("res.named[0] should be name1")
+    .value(res, "named[0]")
+    .equals("name1");
 
     test("res.command should be")
       .value(res, "command")
       .equals(argv[2]);
 
-    test("res.named.name2 should be")
-      .value(res, "named.name2")
-      .equals("value2");
+    test("res.named[1] should be")
+    .value(res, "named[1]")
+    .stringify()
+    .equals("{\"name\":\"name2\",\"value\":\"value2\"}");
 
-    test("res.named.name3 should be")
-      .value(res, "named.name3")
-      .equals("val1,val2");
+    test("res.named[2] should be")
+      .value(res, "named[2]")
+      .stringify()
+      .equals("{\"name\":\"name3\",\"value\":\"val1,val2\"}");
   });
 }
 
 /**[@test({ "title": "TruJS.cmdArgs.CmdArg: named value with reserved chars"})]*/
-function testCmdArgs4(arrange, act, assert, CmdArg) {
+function testCmdArgs4(arrange, act, assert, module) {
   var argv, res;
 
   arrange(function () {
@@ -133,7 +139,7 @@ function testCmdArgs4(arrange, act, assert, CmdArg) {
   });
 
   act(function () {
-    res = CmdArg(argv);
+    res = module(argv);
   });
 
   assert(function (test) {
