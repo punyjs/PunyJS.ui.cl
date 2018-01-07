@@ -35,12 +35,12 @@ function testCmdArgs1(arrange, act, assert, module) {
       .value(res, "command")
       .equals(argv[2]);
 
-    test("res.options should have 4 members")
-      .value(res, "options")
+    test("res.flags should have 4 members")
+      .value(res, "flags")
       .hasMemberCountOf(4);
 
-    test("res.options should be")
-      .value(res, "options")
+    test("res.flags should be")
+      .value(res, "flags")
       .toString()
       .equals("f,t,p,q");
 
@@ -71,8 +71,8 @@ function testCmdArgs2(arrange, act, assert, module) {
   });
 
   assert(function (test) {
-    test("res.options should have 3 members")
-      .value(res, "options")
+    test("res.flags should have 3 members")
+      .value(res, "flags")
       .hasMemberCountOf(3);
 
     test("res.command should be null")

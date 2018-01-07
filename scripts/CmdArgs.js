@@ -3,7 +3,7 @@
 * Processes the command line arguments using the unix and GNU standards
 * 1. Anything prefixed with a singe hyphen will be treated as a single
 *   character option/flag. If there are multiple characters then each will be an
-*   option. e.g. "-tpf" will be parsed as options: [ "t", "p", "f"]
+*   option. e.g. "-tpf" will be parsed as flags: [ "t", "p", "f"]
 * 2. Anything prefixed with double hyphens will be treated as a named option
 *   with the possibility of a following option value. e.g.
 *   "--path ./mypath" will be parsed as "path": "./mypath"
@@ -42,7 +42,7 @@ function processEntry(cmdArgs, entry, last) {
     //single hyphen
     else if (entry.indexOf('-') === 0) {
         last = null;
-        parseOptions(cmdArgs, entry);
+        parseFlags(cmdArgs, entry);
     }
     //no hyphen
     else {
@@ -55,13 +55,13 @@ function processEntry(cmdArgs, entry, last) {
     return last;
 }
 /**
-* Parses an option value to split multiple single character options like: -tpf
+* Parses a flag entry, adding the flag characters to the flags array
 * @function
 * @private
 */
-function parseOptions(cmdArgs, value) {
+function parseFlags(cmdArgs, value) {
     for(var i = 1, l = value.length; i < l; i++) {
-        cmdArgs.options.push(value[i]);
+        cmdArgs.flags.push(value[i]);
     }
 }
 
@@ -78,24 +78,24 @@ function parseNameValue(value) {
         return value.replace(ESCP_RES_PATT, "$1");
     }
 
-    var options = [];
+    var optionValues = [];
     //use regex to extract the name:value pairs
     TruJS._RegEx().getMatches(NAME_VALUE_PATT, value)
     .forEach(function forEachMatch(match) {
         var val = !!match[2] && match[2].replace(ESCP_RES_PATT, "$1") || null;
         //if there is a value then make this a name value pair
         if (val !== null) {
-            options.push({
+            optionValues.push({
                 "name": match[1]
                 , "value": val
             });
         }
         else {
-            options.push(match[1]);
+            optionValues.push(match[1]);
         }
     });
 
-    return options;
+    return optionValues;
 }
 
 /**
@@ -109,7 +109,7 @@ function CmdArgs(argv) {
         "_executable": argv[0]
         , "_script": argv[1]
         , "command": null
-        , "options": []
+        , "flags": []
         , "ordinals": []
     };
 
