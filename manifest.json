@@ -2,7 +2,7 @@
     "type": "javascript"
     , "name": "TruJS.cmdArgs"
     , "description": "A simple module for parsing command line arguments in NodeJS"
-    , "version": "0.0.1"
+    , "version": "0.0.2"
 
     , "files": [
       "{repos}/TruJS/_RegEx.js"
@@ -14,7 +14,7 @@
     , "format": "node"
     , "return": "CmdArgs"
 
-    , "output": "./build/{name}/index.js"
+    , "output": "./builds/{name}/index.js"
 
     , "package": {
         "repository": {
@@ -38,5 +38,7 @@
     , "name": "TruJS.cmdArgs"
     , "description": "The test package for the TruJS.cmdArgs"
 
-    , "output": "./build/{name}.test/test.json"
+    , "return": "CmdArgs"
+
+    , "output": "./builds/{name}/"
 }]

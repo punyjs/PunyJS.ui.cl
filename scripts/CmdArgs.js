@@ -17,7 +17,7 @@
 * cause the node process.argv to treat them as seperate command line entries.
 * If spaces are required, wrap the entire option value set in double qoutes,
 * e.g. "name1:value with space,name2". Since commas and colons are reserved,
-* literal values mustbe escaped using a double backslash, e.g. name1:value\\,1
+* literal values must be escaped using a double backslash, e.g. name1:value\\,1
 *
 * An "ordinal" property will be added to denote in which order the named values
 * were in the command line
@@ -78,12 +78,21 @@ function parseNameValue(value) {
         return value.replace(ESCP_RES_PATT, "$1");
     }
 
-    var options = {};
+    var options = [];
     //use regex to extract the name:value pairs
     TruJS._RegEx().getMatches(NAME_VALUE_PATT, value)
     .forEach(function forEachMatch(match) {
         var val = !!match[2] && match[2].replace(ESCP_RES_PATT, "$1") || null;
-        options[match[1]] = val;
+        //if there is a value then make this a name value pair
+        if (val !== null) {
+            options.push({
+                "name": match[1]
+                , "value": val
+            });
+        }
+        else {
+            options.push(match[1]);
+        }
     });
 
     return options;
