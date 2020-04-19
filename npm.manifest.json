@@ -1,0 +1,36 @@
+{
+    "name": "TruJS.cmdArgs"
+    , "repos": [
+        {
+            "type": "npm"
+            , "repository": {
+              "type": "git",
+              "url": "git+https://github.com/trujs/TruJS.cmdArgs.git"
+            }
+            , "keywords": [
+              "command",
+              "line",
+              "arguments"
+            ]
+            , "author": "Rodger McIntosh"
+            , "license": "MIT"
+            , "bugs": {
+              "url": "https://github.com/trujs/TruJS.cmdArgs/issues"
+            }
+            , "homepage": "https://github.com/trujs/TruJS.cmdArgs#readme"
+        }
+    ]
+    , "config": {
+        "output": "./builds/TruJS/"
+    }
+    , "entries": [
+        "{TruJS.cmdArgs}/base.manifest.json"
+        , {
+            "type": "files"
+            , "description": "The readme file for the npm package"
+            , "files": [
+                "./README.md"
+            ]
+        }
+    ]
+}
