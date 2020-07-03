@@ -1,11 +1,11 @@
 {
-    "name": "TruJS.cmdArgs"
+    "name": "PunyJS.cmdArgs"
     , "repos": [
         {
             "type": "npm"
             , "repository": {
               "type": "git",
-              "url": "git+https://github.com/trujs/TruJS.cmdArgs.git"
+              "url": "git+https://github.com/punyjs/PunyJS.cmdArgs.git"
             }
             , "keywords": [
               "command",
@@ -15,16 +15,16 @@
             , "author": "Rodger McIntosh"
             , "license": "MIT"
             , "bugs": {
-              "url": "https://github.com/trujs/TruJS.cmdArgs/issues"
+              "url": "https://github.com/punyjs/PunyJS.cmdArgs/issues"
             }
-            , "homepage": "https://github.com/trujs/TruJS.cmdArgs#readme"
+            , "homepage": "https://github.com/punyjs/PunyJS.cmdArgs#readme"
         }
     ]
     , "config": {
-        "output": "./builds/TruJS/"
+        "output": "./builds/PunyJS/"
     }
     , "entries": [
-        "{TruJS.cmdArgs}/base.manifest.json"
+        "{PunyJS.cmdArgs}/base.manifest.json"
         , {
             "type": "files"
             , "description": "The readme file for the npm package"

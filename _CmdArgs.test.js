@@ -1,4 +1,4 @@
-/**[@test({ "title": "TruJS.cmdArgs.CmdArg: simple options & named options"})]*/
+/**[@test({ "title": "PunyJS.cmdArgs.CmdArg: simple options & named options"})]*/
 function testCmdArgs1(arrange, act, assert, module) {
   var argv, res;
 
@@ -54,7 +54,7 @@ function testCmdArgs1(arrange, act, assert, module) {
   });
 }
 
-/**[@test({ "title": "TruJS.cmdArgs.CmdArg: multiple same options"})]*/
+/**[@test({ "title": "PunyJS.cmdArgs.CmdArg: multiple same options"})]*/
 function testCmdArgs2(arrange, act, assert, module) {
   var argv, res;
 
@@ -82,7 +82,7 @@ function testCmdArgs2(arrange, act, assert, module) {
   });
 }
 
-/**[@test({ "title": "TruJS.cmdArgs.CmdArg: complex named options"})]*/
+/**[@test({ "title": "PunyJS.cmdArgs.CmdArg: complex named options"})]*/
 function testCmdArgs3(arrange, act, assert, module) {
   var argv, res;
 
@@ -125,7 +125,7 @@ function testCmdArgs3(arrange, act, assert, module) {
   });
 }
 
-/**[@test({ "title": "TruJS.cmdArgs.CmdArg: named value with reserved chars"})]*/
+/**[@test({ "title": "PunyJS.cmdArgs.CmdArg: named value with reserved chars"})]*/
 function testCmdArgs4(arrange, act, assert, module) {
   var argv, res;
 

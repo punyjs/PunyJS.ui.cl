@@ -11,7 +11,7 @@
 *
 * @factory
 *   @dependency {array} processArgs ["+process.argv"]
-*   @dependency {object} regEx [":TruJS.core.utils._RegEx",[]]
+*   @dependency {object} regEx [":PunyJS.core.utils._RegEx",[]]
 * @interface iCommandLineArguments
 *   @property {string} _executable
 *   @property {string} _script

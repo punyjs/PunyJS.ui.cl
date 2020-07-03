@@ -1,4 +1,4 @@
-# TruJS.cmdArgs
+# PunyJS.cmdArgs
 
 A simple module for parsing command line arguments in NodeJS.
 
@@ -7,7 +7,7 @@ This module returns a simple worker function that takes an argv array and return
 ###### Usage
 
 ```javascript
-var cmdArgs = require("trujs-cmdargs")(process.argv);
+var cmdArgs = require("punyjs-cmdargs")(process.argv);
 ```
 
 ###### Command Line Parts

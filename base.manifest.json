@@ -1,21 +1,21 @@
 {
-    "namespace": "TruJS.cmdArgs"
+    "namespace": "PunyJS.cmdArgs"
     , "entries": [
         {
             "type": "module"
-            , "name": "trujs-cmdargs"
+            , "name": "punyjs-cmdargs"
             , "description": "A simple module for parsing command line arguments in NodeJS"
             , "repos": [
                 {
                     "type": "git"
-                    , "url": "https://github.com/trujs/TruJS.core.git"
+                    , "url": "https://github.com/punyjs/PunyJS.core.git"
                     , "branch": "development"
-                    , "local": "TruJS/core"
+                    , "local": "PunyJS/core"
                 }
             ]
             , "paths": [
-                "{TruJS.core}/utils/_RegEx.js"
-                , "{TruJS.cmdArgs}/_CmdArgs.js"
+                "{PunyJS.core}/utils/_RegEx.js"
+                , "{PunyJS.cmdArgs}/_CmdArgs.js"
             ]
             , "moduleExport": "cmdArgs"
             , "config": {
