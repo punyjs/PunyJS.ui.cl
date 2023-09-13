@@ -11,7 +11,7 @@
 *
 * @factory
 *   @dependency {array} processArgs ["+process.argv"]
-*   @dependency {object} regEx [":PunyJS.core.utils._RegEx",[]]
+*   @dependency {object} regExp [":PunyJS.core.regexp._RegExp",[]]
 * @interface iCommandLineArguments
 *   @property {string} _executable
 *   @property {string} _script
@@ -23,11 +23,13 @@
 */
 function _CmdArgs(
     args
-    , regEx
+    , regExp
 ) {
 
     var NAME_VALUE_PATT = /((?:[\\][,]|[\\][:]|[^,:])+)(?:[:]((?:[\\][,]|[\\][:]|[^,:])+))?/g
     , ESCP_RES_PATT = /\\([,:])/g
+    , ESCP_COLON_PATT = /\:/g
+    , ESCP_COMMA_PATT = /\,/g
     , PATH_PATT = /^(?:[A-z]:)?(?:[\/\\][^\/\\]+)+(?:[\/\\])?$/
     , cmdArgs = {
         "arguments": {}
@@ -143,8 +145,8 @@ function _CmdArgs(
     function parseNameValue(value) {
         //see if this is just a value (no unescaped colons or commas)
         if (
-            value.replace("\\:", "").indexOf(":") === -1
-            && value.replace("\\,", "").indexOf(",") === -1
+            value.replace(ESCP_COLON_PATT, "").indexOf(":") === -1
+            && value.replace(ESCP_COMMA_PATT, "").indexOf(",") === -1
         ) {
             value = value.replace(ESCP_RES_PATT, "$1");
             if (Object.keys(literalMap).indexOf(value) !== -1) {
@@ -159,7 +161,7 @@ function _CmdArgs(
 
         var optionValues = {};
         //use regex to extract the name:value pairs
-        regExpHelper.getMatches(NAME_VALUE_PATT, value)
+        regExp.getMatches(NAME_VALUE_PATT, value)
         .forEach(function forEachMatch(match) {
             var val = !!match[2]
                 && match[2].replace(ESCP_RES_PATT, "$1")

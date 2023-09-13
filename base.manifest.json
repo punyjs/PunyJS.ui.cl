@@ -14,7 +14,7 @@
                 }
             ]
             , "paths": [
-                "{PunyJS.core}/utils/_RegEx.js"
+                "{PunyJS.core}/regexp/_RegExp.js"
                 , "{PunyJS.cmdArgs}/_CmdArgs.js"
             ]
             , "moduleExport": "cmdArgs"
