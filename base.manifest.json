@@ -13,7 +13,7 @@
                 }
             ]
             , "paths": [
-                "{PunyJS.ui.cl.args}/_CmdArgs.js"
+                "{PunyJS.cmdArgs}/_CmdArgs.js"
             ]
             , "moduleExport": "cmdArgs"
             , "config": {
