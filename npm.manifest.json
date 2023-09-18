@@ -26,9 +26,9 @@
     , "entries": [
         "{PunyJS.cmdArgs}/base.manifest.json"
         , {
-            "type": "files"
+            "type": "file"
             , "description": "The readme file for the npm package"
-            , "files": [
+            , "paths": [
                 "./README.md"
             ]
         }

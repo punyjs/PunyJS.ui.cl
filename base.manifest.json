@@ -1,6 +1,5 @@
 {
-    "namespace": "PunyJS.cmdArgs"
-    , "entries": [
+    "entries": [
         {
             "type": "module"
             , "name": "punyjs-cmdargs"
@@ -14,8 +13,7 @@
                 }
             ]
             , "paths": [
-                "{PunyJS.core}/utils/_RegEx.js"
-                , "{PunyJS.cmdArgs}/_CmdArgs.js"
+                "{PunyJS.ui.cl.args}/_CmdArgs.js"
             ]
             , "moduleExport": "cmdArgs"
             , "config": {
